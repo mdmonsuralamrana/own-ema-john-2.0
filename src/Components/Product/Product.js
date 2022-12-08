@@ -1,14 +1,10 @@
 import React from 'react';
-// import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import './Product.css';
 import Star from './Star';
 
 const Product = (props) => {
-
     const { name, img, price, ratings, ratingsCount, seller } = props.product;
-
-    console.log(props.product);
-
+    const handleAddToCard = props.handleAddToCard;
     return (
         <div className="product">
             <img src={img} alt="" />
@@ -19,7 +15,7 @@ const Product = (props) => {
                 {/* <p>Rating: <span className="fa fa-star checked">{ratings} </span> stars</p> */}
                 <Star rating={ratings} ratingsCount={ratingsCount} />
             </div>
-            <button className="add-to-cart-btn">
+            <button onClick={() => handleAddToCard(props.product)} className="add-to-cart-btn">
                 Add To Cart
             </button>
         </div>
